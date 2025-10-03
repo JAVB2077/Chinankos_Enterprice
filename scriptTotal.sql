@@ -85,8 +85,8 @@ CREATE TABLE IF NOT EXISTS STATES (
 CREATE TABLE IF NOT EXISTS TOWNS (
     pk_id_town SERIAL PRIMARY KEY,
     name_town VARCHAR(100) NOT NULL,
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     fk_id_state INTEGER NOT NULL,
     FOREIGN KEY (fk_id_state) REFERENCES STATES (pk_id_state) ON DELETE RESTRICT ON UPDATE CASCADE,
     UNIQUE (name_town, fk_id_state) -- Un pueblo puede tener el mismo nombre en diferentes estados
@@ -204,12 +204,12 @@ CREATE TABLE IF NOT EXISTS AVERAGE_INTEREST_POINTS (
 CREATE TABLE IF NOT EXISTS ADDRESS_INTEREST_POINT (
     pk_id_address_interest_point SERIAL PRIMARY KEY,
     street VARCHAR(255) NOT NULL,
-    exterior_number VARCHAR(20),
-    interior_number VARCHAR(20),
+    exterior_number VARCHAR(50),
+    interior_number VARCHAR(50),
     neighborhood VARCHAR(100),
     postal_code VARCHAR(10),
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     fk_id_interest_point INTEGER NOT NULL UNIQUE, -- Relación 1:1 con INTEREST_POINTS
     FOREIGN KEY (fk_id_interest_point) REFERENCES INTEREST_POINTS (pk_id_interest_point) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -221,8 +221,8 @@ CREATE TABLE IF NOT EXISTS SUGGESTED_POINT (
     pk_id_suggested_point SERIAL PRIMARY KEY,
     name_suggested_point VARCHAR(255) NOT NULL,
     description TEXT,
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     likes INTEGER DEFAULT 0,
     dislikes INTEGER DEFAULT 0,
     fk_id_type_of_suggested_point INTEGER NOT NULL,
@@ -277,8 +277,8 @@ CREATE TABLE IF NOT EXISTS EVENTS (
     pk_id_event SERIAL PRIMARY KEY,
     name_event VARCHAR(255) NOT NULL,
     time_end TIMESTAMP,
-    longitude DECIMAL(9,6),
-    latitude DECIMAL(9,6),
+    longitude DECIMAL(5,10),
+    latitude DECIMAL(5,10),
     price DECIMAL(10,2),
     fk_id_town INTEGER NOT NULL,
     fk_id_type_of_event INTEGER NOT NULL,
@@ -295,8 +295,8 @@ CREATE TABLE IF NOT EXISTS ADDRESS_EVENTS (
     interior_number VARCHAR(20),
     neighborhood VARCHAR(100),
     postal_code VARCHAR(10),
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     fk_id_event INTEGER NOT NULL UNIQUE, -- Relación 1:1 con EVENTS
     FOREIGN KEY (fk_id_event) REFERENCES EVENTS (pk_id_event) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -362,8 +362,8 @@ CREATE TABLE IF NOT EXISTS STATES (
 CREATE TABLE IF NOT EXISTS TOWNS (
     pk_id_town SERIAL PRIMARY KEY,
     name_town VARCHAR(100) NOT NULL,
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     fk_id_state INTEGER NOT NULL,
     FOREIGN KEY (fk_id_state) REFERENCES STATES (pk_id_state) ON DELETE RESTRICT ON UPDATE CASCADE,
     UNIQUE (name_town, fk_id_state) -- Un pueblo puede tener el mismo nombre en diferentes estados
@@ -485,8 +485,8 @@ CREATE TABLE IF NOT EXISTS ADDRESS_INTEREST_POINT (
     interior_number VARCHAR(20),
     neighborhood VARCHAR(100),
     postal_code VARCHAR(10),
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     fk_id_interest_point INTEGER NOT NULL UNIQUE, -- Relación 1:1 con INTEREST_POINTS
     FOREIGN KEY (fk_id_interest_point) REFERENCES INTEREST_POINTS (pk_id_interest_point) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -498,8 +498,8 @@ CREATE TABLE IF NOT EXISTS SUGGESTED_POINT (
     pk_id_suggested_point SERIAL PRIMARY KEY,
     name_suggested_point VARCHAR(255) NOT NULL,
     description TEXT,
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     likes INTEGER DEFAULT 0,
     dislikes INTEGER DEFAULT 0,
     fk_id_type_of_suggested_point INTEGER NOT NULL,
@@ -554,8 +554,8 @@ CREATE TABLE IF NOT EXISTS EVENTS (
     pk_id_event SERIAL PRIMARY KEY,
     name_event VARCHAR(255) NOT NULL,
     time_end TIMESTAMP,
-    longitude DECIMAL(9,6),
-    latitude DECIMAL(9,6),
+    longitude DECIMAL(5,10),
+    latitude DECIMAL(5,10),
     price DECIMAL(10,2),
     fk_id_town INTEGER NOT NULL,
     fk_id_type_of_event INTEGER NOT NULL,
@@ -572,8 +572,8 @@ CREATE TABLE IF NOT EXISTS ADDRESS_EVENTS (
     interior_number VARCHAR(20),
     neighborhood VARCHAR(100),
     postal_code VARCHAR(10),
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(5,10),
+    longitude DECIMAL(5,10),
     fk_id_event INTEGER NOT NULL UNIQUE, -- Relación 1:1 con EVENTS
     FOREIGN KEY (fk_id_event) REFERENCES EVENTS (pk_id_event) ON DELETE CASCADE ON UPDATE CASCADE
 );
