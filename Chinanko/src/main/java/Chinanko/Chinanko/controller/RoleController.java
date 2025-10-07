@@ -1,0 +1,53 @@
+package Chinanko.Chinanko.controller;
+
+import java.net.URI;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import Chinanko.Chinanko.dto.RoleRequest;
+import Chinanko.Chinanko.dto.RoleResponse;
+import Chinanko.Chinanko.service.RoleService;
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/v1/roles")
+@RequiredArgsConstructor
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,
+        RequestMethod.PUT })
+public class RoleController {
+
+    private final RoleService service;
+
+    @PostMapping
+    public ResponseEntity<RoleResponse> create(@RequestBody RoleRequest request) {
+        RoleResponse created = service.create(request);
+        return ResponseEntity
+                .created(URI.create("/api/v1/roles/" + created.getIdRol()))
+                .body(created);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<RoleResponse>> findAll() {
+        return ResponseEntity.ok(service.getAll());
+    }
+
+    @GetMapping("/{idRole}")
+    public RoleResponse findById(@PathVariable Integer idRole) {
+        return service.findById(idRole);
+    }
+
+    @PutMapping("/{idRole}")
+    public RoleResponse update(@PathVariable Integer idRole, @RequestBody RoleRequest req) {
+        return service.update(idRole, req);
+    }
+}
