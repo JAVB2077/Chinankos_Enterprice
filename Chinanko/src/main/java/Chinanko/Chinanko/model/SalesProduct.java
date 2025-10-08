@@ -17,26 +17,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "NOTIFICATIONS_PROFILE_USERS")
-public class NotificationProfileUser {
-
+@Table(name = "SALES_PRODUCTS")
+public class SalesProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_id_notification_profile_user")
-    private Integer idNotificactionUser;
+    @Column(name = "pk_id_sale_product")
+    private Integer idSalesProduct;
 
-    @Column(name = "state", nullable = false)
-    private Boolean state = false;
+    @Column(name = "quantity")
+    private Integer quantity;
 
-    // --- RELACIONES ---
+    @Column(name = "unit_price")
+    private Long unitPrice;
 
-    // Muchos registros de esta tabla se refieren a un User (usuario receptor)
+    @Column(name = "subtotal")
+    private Long subtotal;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_user", nullable = false)
-    private User user;
+    @JoinColumn(name = "fk_id_product")
+    private Product product;
 
-    // Muchos registros de esta tabla se refieren a una Notification
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_notification", nullable = false)
-    private Notification notification;
+    @JoinColumn(name = "fk_id_sale")
+    private Sale sale;
 }

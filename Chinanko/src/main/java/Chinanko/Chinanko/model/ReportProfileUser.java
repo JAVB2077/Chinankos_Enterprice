@@ -1,6 +1,6 @@
 package Chinanko.Chinanko.model;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -9,6 +9,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,18 +21,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TYPES_OF_NOTIFICATIONS")
-public class TypeOfNotification {
-
+@Table(name = "REPORTS_PROFILE_USERS")
+public class ReportProfileUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_id_type_of_notification")
-    private Integer idTypeNotification;
+    @Column(name = "pk_id_report")
+    private Integer idReportProfile;
 
-    @Column(name = "type", nullable = false, unique = true)
-    private String type;
+    @Column(name = "description")
+    private String description;
 
-    // Relación Uno a Muchos: Un usuario puede tener muchas notificaciones
-    @OneToMany(mappedBy = "typeOfNotification", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Notification> notifications;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_type_of_report")
+    private TypeOfReport typeOfReport;
+
+    @OneToMany(mappedBy = "reportProfileUser", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ProfileUser> profileUsers;
 }

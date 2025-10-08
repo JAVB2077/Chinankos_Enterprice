@@ -1,5 +1,6 @@
 package Chinanko.Chinanko.model;
 
+import java.math.BigDecimal;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,26 +18,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "NOTIFICATIONS_PROFILE_USERS")
-public class NotificationProfileUser {
-
+@Table(name = "OPINIONS_INTEREST_POINT")
+public class OpinionInterestPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_id_notification_profile_user")
-    private Integer idNotificactionUser;
+    @Column(name = "pk_id_interest_point")
+    private Integer idOpinionInterestPoint;
 
-    @Column(name = "state", nullable = false)
-    private Boolean state = false;
+    @Column(name = "opinion")
+    private String opinion;
 
-    // --- RELACIONES ---
+    @Column(name = "polarity")
+    private BigDecimal polarity;
 
-    // Muchos registros de esta tabla se refieren a un User (usuario receptor)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_user", nullable = false)
-    private User user;
+    @JoinColumn(name = "fk_id_type_of_opinion")
+    private TypeOfOpinio TypeOfOpinio;
 
-    // Muchos registros de esta tabla se refieren a una Notification
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_notification", nullable = false)
-    private Notification notification;
+    @JoinColumn(name = "fk_id_interest_point")
+    private InterestPoint interestPoint;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_user")
+    private ProfileUser profileUser;
 }

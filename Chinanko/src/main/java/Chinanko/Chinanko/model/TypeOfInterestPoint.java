@@ -1,6 +1,6 @@
 package Chinanko.Chinanko.model;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,18 +19,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TYPES_OF_NOTIFICATIONS")
-public class TypeOfNotification {
-
+@Table(name = "TYPE_OF_INTEREST_POINTS")
+public class TypeOfInterestPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_id_type_of_notification")
-    private Integer idTypeNotification;
+    @Column(name = "pk_id_type_interes_point")
+    private Integer idTypeInteresPoint;
 
-    @Column(name = "type", nullable = false, unique = true)
-    private String type;
+    @Column(name = "name_type_of_insterest_point")
+    private String nameTypeInteresPoint;
 
-    // Relación Uno a Muchos: Un usuario puede tener muchas notificaciones
-    @OneToMany(mappedBy = "typeOfNotification", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Notification> notifications;
+    @OneToMany(mappedBy = "typeOfInterestPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<InterestPoint> interestPoints;
 }

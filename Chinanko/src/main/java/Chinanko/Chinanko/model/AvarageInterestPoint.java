@@ -13,33 +13,33 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data 
-@Builder 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "USERS")
-public class User {
-
+@Table(name = "AVARAGE_INTEREST_POINT")
+public class AvarageInterestPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_id_user")
-    private Integer idUser;
+    @Column(name = "pk_id_town")
+    private Integer idAvarageInterestedPoint;
 
-    @Column(name = "name_user", nullable = false)
-    private String nameUser;
+    @Column(name = "likes")
+    private Integer likes;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
+    @Column(name = "dislikes")
+    private Integer dislikes;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "total")
+    private Integer total;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(name = "avarage")
+    private Long avarage;
+
+    @OneToOne(mappedBy = "avarageInterest", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
-    private List<ProfileUser> profileUser;
+    private List<InterestPoint> interestPoint;
 }
