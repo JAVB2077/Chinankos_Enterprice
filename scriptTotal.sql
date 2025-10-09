@@ -1,4 +1,4 @@
--- Dia_0.1.2
+-- Dia_0.1.4
 
 -- Crear la base de datos
 CREATE DATABASE chinankodb;
@@ -380,6 +380,85 @@ CREATE TABLE IF NOT EXISTS REPORTS_EVENTS (
     FOREIGN KEY (fk_id_type_of_report_event) REFERENCES TYPES_OF_REPORTS_EVENTS (pk_id_type_of_report_event) ON DELETE RESTRICT ON UPDATE CASCADE,
     FOREIGN KEY (fk_id_event) REFERENCES EVENTS (pk_id_event) ON DELETE CASCADE ON UPDATE CASCADE
 );
+---
+--## REPORTES DE PUNTOS DE INTERÉS
+---
+
+-- ===========================================
+-- Tipos de reportes aplicables a puntos oficiales y sugeridos
+-- ===========================================
+
+CREATE TABLE IF NOT EXISTS TYPES_OF_REPORTS_POINTS (
+    pk_id_type_of_report_point SERIAL PRIMARY KEY,
+    type VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- ===========================================
+-- Reportes de Puntos de Interés Oficiales
+-- ===========================================
+
+CREATE TABLE IF NOT EXISTS REPORTS_INTEREST_POINTS (
+    pk_id_report_interest_point SERIAL PRIMARY KEY,
+    description TEXT NOT NULL,
+    date_report TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fk_id_type_of_report_point INTEGER NOT NULL,
+    fk_id_interest_point INTEGER NOT NULL,
+    fk_id_user INTEGER NOT NULL,
+    FOREIGN KEY (fk_id_type_of_report_point) REFERENCES TYPES_OF_REPORTS_POINTS (pk_id_type_of_report_point) ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (fk_id_interest_point) REFERENCES INTEREST_POINTS (pk_id_interest_point) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (fk_id_user) REFERENCES USERS (pk_id_user) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+-- ===========================================
+-- Reportes de Puntos de Interés Sugeridos
+-- ===========================================
+
+CREATE TABLE IF NOT EXISTS REPORTS_SUGGESTED_POINTS (
+    pk_id_report_suggested_point SERIAL PRIMARY KEY,
+    description TEXT NOT NULL,
+    date_report TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fk_id_type_of_report_point INTEGER NOT NULL,
+    fk_id_suggested_point INTEGER NOT NULL,
+    fk_id_user INTEGER NOT NULL,
+    FOREIGN KEY (fk_id_type_of_report_point) REFERENCES TYPES_OF_REPORTS_POINTS (pk_id_type_of_report_point) ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (fk_id_suggested_point) REFERENCES SUGGESTED_POINT (pk_id_suggested_point) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (fk_id_user) REFERENCES USERS (pk_id_user) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+-- ===========================================
+-- Índices para optimización
+-- ===========================================
+
+CREATE INDEX IF NOT EXISTS idx_reports_interest_type
+    ON REPORTS_INTEREST_POINTS(fk_id_type_of_report_point);
+
+CREATE INDEX IF NOT EXISTS idx_reports_interest_point
+    ON REPORTS_INTEREST_POINTS(fk_id_interest_point);
+
+CREATE INDEX IF NOT EXISTS idx_reports_interest_user
+    ON REPORTS_INTEREST_POINTS(fk_id_user);
+
+CREATE INDEX IF NOT EXISTS idx_reports_suggested_type
+    ON REPORTS_SUGGESTED_POINTS(fk_id_type_of_report_point);
+
+CREATE INDEX IF NOT EXISTS idx_reports_suggested_point
+    ON REPORTS_SUGGESTED_POINTS(fk_id_suggested_point);
+
+CREATE INDEX IF NOT EXISTS idx_reports_suggested_user
+    ON REPORTS_SUGGESTED_POINTS(fk_id_user);
+
+-- ===========================================
+-- Tipos de reporte predefinidos (opcional)
+-- ===========================================
+
+INSERT INTO TYPES_OF_REPORTS_POINTS (type)
+VALUES 
+('Información incorrecta'),
+('Ubicación errónea'),
+('Contenido inapropiado'),
+('Duplicado'),
+('Otro')
+ON CONFLICT (type) DO NOTHING;
 
 -- =================================================================================
 -- REGLAS Y PERMISOS FINALES
