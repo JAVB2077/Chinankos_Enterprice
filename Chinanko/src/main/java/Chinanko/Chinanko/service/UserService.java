@@ -6,8 +6,17 @@ import Chinanko.Chinanko.dto.UserRequest;
 import Chinanko.Chinanko.dto.UserResponse;
 
 public interface UserService {
-    UserResponse create(UserRequest request);
     List<UserResponse> findAll();
-    UserResponse getById(Integer id);
-    UserResponse update(Integer id, UserRequest request);
+
+    UserResponse findById(Integer idUser);
+
+    UserResponse create(UserRequest request);
+
+    UserResponse update(Integer idUser, UserRequest request);
+
+    public List<UserResponse> getUserByName(String name);
+
+    public List<UserResponse> getUserByEmail(String email);
+
+    public List<UserResponse> findAll(int page, int pageSize);
 }
