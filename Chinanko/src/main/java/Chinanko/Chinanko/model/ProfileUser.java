@@ -62,6 +62,6 @@ public class ProfileUser {
     private ReportProfileUser reportProfileUser;
 
     //Relacion Uno a Muchos con Opinions Suggested Point
-    @OneToMany(mappedBy = "profileUsers", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profileUser", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OpinionsSuggestedPoints> opinionsSuggestedPoints;
 }

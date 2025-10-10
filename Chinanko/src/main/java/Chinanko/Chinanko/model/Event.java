@@ -64,6 +64,6 @@ public class Event {
     @JoinColumn(name = "fk_id_state_of_event")
     private StateOfEvent stateOfEvent;
 
-    @OneToMany(mappedBy = "Event", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AddressEvent> addressEvent;
 }

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Dashboard - Controllers disponibles</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        .tab { overflow: hidden; border: 1px solid #ccc; background-color: #f1f1f1; display: flex; flex-wrap: wrap; }
+        .tab button { background-color: inherit; border: none; outline: none; cursor: pointer; padding: 12px 14px; transition: 0.2s; font-size: 14px; }
+        .tab button:hover { background-color: #ddd; }
+        .tab button.active { background-color: #ccc; font-weight: bold; }
+        .tabcontent { display: none; padding: 18px; border: 1px solid #ccc; border-top: none; background-color: white; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .operations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 16px; }
+        fieldset { border: 1px solid #ccc; border-radius: 6px; padding: 12px; }
+        legend { font-weight: bold; font-size: 1.05em; color: #0056b3; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 95%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
+        button { padding: 8px 12px; font-size: 14px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; margin-top: 6px; }
+        button:hover { background-color: #0056b3; }
+        button.delete-btn { background-color: #dc3545; }
+        button.delete-btn:hover { background-color: #c82333; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 12px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; min-height: 48px; }
+    </style>
+</head>
+<body>
+
+<h1>API Dashboard (endpoints detectados)</h1>
+<p>Interactúa con los endpoints expuestos por los controllers actualmente presentes en el proyecto.</p>
+
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event,'Users')" id="defaultOpen">Users</button>
+    <button class="tablinks" onclick="openTab(event,'Roles')">Roles</button>
+    <button class="tablinks" onclick="openTab(event,'States')">States</button>
+    <button class="tablinks" onclick="openTab(event,'Towns')">Towns</button>
+    <button class="tablinks" onclick="openTab(event,'Profiles')">Profiles</button>
+    <button class="tablinks" onclick="openTab(event,'Notifications')">Notifications</button>
+    <button class="tablinks" onclick="openTab(event,'NotificationProfiles')">Notification-Profiles</button>
+    <button class="tablinks" onclick="openTab(event,'Types')">Types</button>
+</div>
+
+<!-- USERS -->
+<div id="Users" class="tabcontent">
+    <h2>Users (/api/v1/users)</h2>
+    <button id="fetchAllUsers">Consultar Todos</button>
+    <div class="operations-grid">
+        <fieldset>
+            <legend>Buscar por ID</legend>
+            <div class="form-group"><label for="userIdInput">User ID:</label><input type="number" id="userIdInput" placeholder="Ej: 1"></div>
+            <button id="fetchUserById">Buscar</button>
+        </fieldset>
+        <fieldset>
+            <legend>Crear Usuario</legend>
+            <form id="createUserForm">
+                <div class="form-group"><label>User Name:</label><input name="userName" required></div>
+                <div class="form-group"><label>Email:</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Password:</label><input type="password" name="password" required></div>
+                <div class="form-group"><label>Role ID:</label><input type="number" name="roleId"></div>
+                <button type="submit">Crear</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Actualizar Usuario</legend>
+            <form id="updateUserForm">
+                <div class="form-group"><label>User ID a actualizar:</label><input name="id" type="number" required></div>
+                <div class="form-group"><label>User Name:</label><input name="userName" required></div>
+                <div class="form-group"><label>Email:</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Password:</label><input type="password" name="password"></div>
+                <div class="form-group"><label>Role ID:</label><input type="number" name="roleId"></div>
+                <button type="submit">Actualizar</button>
+            </form>
+        </fieldset>
+    </div>
+    <h3>Resultados:</h3>
+    <pre id="usersResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- ROLES -->
+<div id="Roles" class="tabcontent">
+    <h2>Roles (/api/v1/roles)</h2>
+    <button id="fetchAllRoles">Consultar Todos</button>
+    <div class="operations-grid">
+        <fieldset>
+            <legend>Buscar por ID</legend>
+            <div class="form-group"><label for="roleIdInput">Role ID:</label><input type="number" id="roleIdInput" placeholder="Ej: 1"></div>
+            <button id="fetchRoleById">Buscar</button>
+        </fieldset>
+        <fieldset>
+            <legend>Crear Rol</legend>
+            <form id="createRoleForm">
+                <div class="form-group"><label>Role Name:</label><input name="roleName" required></div>
+                <div class="form-group"><label>Descripción (opcional):</label><input name="description"></div>
+                <button type="submit">Crear</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Actualizar Rol</legend>
+            <form id="updateRoleForm">
+                <div class="form-group"><label>Role ID a actualizar:</label><input name="id" type="number" required></div>
+                <div class="form-group"><label>Role Name:</label><input name="roleName" required></div>
+                <div class="form-group"><label>Descripción (opcional):</label><input name="description"></div>
+                <button type="submit">Actualizar</button>
+            </form>
+        </fieldset>
+    </div>
+    <h3>Resultados:</h3>
+    <pre id="rolesResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- STATES -->
+<div id="States" class="tabcontent">
+    <h2>States (/api/v1/states)</h2>
+    <button id="fetchAllStates">Consultar Todos</button>
+    <div class="operations-grid">
+        <fieldset>
+            <legend>Buscar por ID</legend>
+            <div class="form-group"><label for="stateIdInput">State ID:</label><input type="number" id="stateIdInput" placeholder="Ej: 1"></div>
+            <button id="fetchStateById">Buscar</button>
+        </fieldset>
+        <fieldset>
+            <legend>Crear State</legend>
+            <form id="createStateForm">
+                <div class="form-group"><label>Nombre:</label><input name="name" required></div>
+                <div class="form-group"><label>Descripción:</label><input name="description"></div>
+                <button type="submit">Crear</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Actualizar State</legend>
+            <form id="updateStateForm">
+                <div class="form-group"><label>State ID a actualizar:</label><input name="id" type="number" required></div>
+                <div class="form-group"><label>Nombre:</label><input name="name" required></div>
+                <div class="form-group"><label>Descripción:</label><input name="description"></div>
+                <button type="submit">Actualizar</button>
+            </form>
+        </fieldset>
+    </div>
+    <h3>Resultados:</h3>
+    <pre id="statesResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- TOWNS -->
+<div id="Towns" class="tabcontent">
+    <h2>Towns (/api/v1/towns)</h2>
+    <button id="fetchAllTowns">Consultar Todos</button>
+    <div class="operations-grid">
+        <fieldset>
+            <legend>Buscar por ID</legend>
+            <div class="form-group"><label for="townIdInput">Town ID:</label><input type="number" id="townIdInput" placeholder="Ej: 1"></div>
+            <button id="fetchTownById">Buscar</button>
+        </fieldset>
+        <fieldset>
+            <legend>Crear Town</legend>
+            <form id="createTownForm">
+                <div class="form-group"><label>Nombre:</label><input name="name" required></div>
+                <div class="form-group"><label>Estado ID:</label><input name="stateId" type="number"></div>
+                <button type="submit">Crear</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Actualizar Town</legend>
+            <form id="updateTownForm">
+                <div class="form-group"><label>Town ID a actualizar:</label><input name="id" type="number" required></div>
+                <div class="form-group"><label>Nombre:</label><input name="name" required></div>
+                <div class="form-group"><label>Estado ID:</label><input name="stateId" type="number"></div>
+                <button type="submit">Actualizar</button>
+            </form>
+        </fieldset>
+    </div>
+    <h3>Resultados:</h3>
+    <pre id="townsResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- PROFILES (solo GET) -->
+<div id="Profiles" class="tabcontent">
+    <h2>Profiles (/api/profiles)</h2>
+    <button id="fetchAllProfiles">Consultar Todos</button>
+    <h3>Resultados:</h3>
+    <pre id="profilesResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- NOTIFICATIONS (solo GET) -->
+<div id="Notifications" class="tabcontent">
+    <h2>Notifications (/api/notifications)</h2>
+    <button id="fetchAllNotifications">Consultar Todos</button>
+    <h3>Resultados:</h3>
+    <pre id="notificationsResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- NOTIFICATION-PROFILES (solo GET) -->
+<div id="NotificationProfiles" class="tabcontent">
+    <h2>Notification-Profiles (/api/notification-profiles)</h2>
+    <button id="fetchAllNotificationProfiles">Consultar Todos</button>
+    <h3>Resultados:</h3>
+    <pre id="notificationProfilesResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<!-- TYPES -->
+<div id="Types" class="tabcontent">
+    <h2>Types (/api/types)</h2>
+    <button id="fetchAllTypes">Consultar Todos</button>
+    <div class="operations-grid">
+        <fieldset>
+            <legend>Crear Type</legend>
+            <form id="createTypeForm">
+                <div class="form-group"><label>Nombre:</label><input name="name" required></div>
+                <div class="form-group"><label>Descripción:</label><input name="description"></div>
+                <button type="submit">Crear</button>
+            </form>
+        </fieldset>
+    </div>
+    <h3>Resultados:</h3>
+    <pre id="typesResult">Aquí se mostrarán los resultados...</pre>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        document.querySelectorAll('.tabcontent').forEach(tc => tc.style.display = 'none');
+        document.querySelectorAll('.tablinks').forEach(tl => tl.classList.remove('active'));
+        const el = document.getElementById(tabName);
+        if (el) el.style.display = 'block';
+        if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+    }
+    document.getElementById('defaultOpen').click();
+
+    const API_BASE_URL = 'http://localhost:8080';
+
+    async function fetchAPI(endpoint, method = 'GET', body = null, resultElementId) {
+        const resultEl = document.getElementById(resultElementId);
+        if (!resultEl) return;
+        resultEl.textContent = 'Cargando...';
+        const options = { method, headers: { 'Content-Type': 'application/json' } };
+        if (body) options.body = JSON.stringify(body);
+        try {
+            const res = await fetch(API_BASE_URL + endpoint, options);
+            if (res.status === 204) { resultEl.textContent = 'Operación exitosa (204 No Content)'; return; }
+            const txt = await res.text();
+            if (!txt) { resultEl.textContent = `Operación exitosa (Código ${res.status})`; return; }
+            const data = JSON.parse(txt);
+            if (!res.ok) throw new Error(JSON.stringify(data, null, 2));
+            resultEl.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+            resultEl.textContent = `Error: ${err.message}\nAsegúrate de que el backend esté corriendo en ${API_BASE_URL}`;
+            console.error(err);
+        }
+    }
+
+    function toNumberIfNeeded(key, value) {
+        if (value === '') return undefined;
+        const numericKeys = ['id', 'roleid', 'stateid', 'townid', 'userid', 'stateId', 'roleId', 'userId'];
+        if (!isNaN(value) && numericKeys.some(k => key.toLowerCase().includes(k.toLowerCase()))) return Number(value);
+        return value;
+    }
+
+    function handleFormSubmit(formId, endpoint, method, resultId) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const raw = Object.fromEntries(new FormData(form).entries());
+            const body = {};
+            for (const k in raw) {
+                const v = raw[k];
+                const converted = toNumberIfNeeded(k, v);
+                if (converted !== undefined) body[k] = converted;
+            }
+            const finalEndpoint = method === 'PUT' ? `${endpoint}/${body.id}` : endpoint;
+            fetchAPI(finalEndpoint, method, body, resultId);
+        });
+    }
+
+    function setupButton(buttonId, endpoint, method, inputId, resultId) {
+        const btn = document.getElementById(buttonId);
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            if (inputId) {
+                const id = document.getElementById(inputId).value;
+                if (!id) { alert('Introduce un ID'); return; }
+                fetchAPI(`${endpoint}/${id}`, method, null, resultId);
+            } else {
+                fetchAPI(endpoint, method, null, resultId);
+            }
+        });
+    }
+
+    // Users
+    setupButton('fetchAllUsers', '/api/v1/users', 'GET', null, 'usersResult');
+    setupButton('fetchUserById', '/api/v1/users', 'GET', 'userIdInput', 'usersResult');
+    handleFormSubmit('createUserForm', '/api/v1/users', 'POST', 'usersResult');
+    handleFormSubmit('updateUserForm', '/api/v1/users', 'PUT', 'usersResult');
+
+    // Roles
+    setupButton('fetchAllRoles', '/api/v1/roles', 'GET', null, 'rolesResult');
+    setupButton('fetchRoleById', '/api/v1/roles', 'GET', 'roleIdInput', 'rolesResult');
+    handleFormSubmit('createRoleForm', '/api/v1/roles', 'POST', 'rolesResult');
+    handleFormSubmit('updateRoleForm', '/api/v1/roles', 'PUT', 'rolesResult');
+
+    // States
+    setupButton('fetchAllStates', '/api/v1/states', 'GET', null, 'statesResult');
+    setupButton('fetchStateById', '/api/v1/states', 'GET', 'stateIdInput', 'statesResult');
+    handleFormSubmit('createStateForm', '/api/v1/states', 'POST', 'statesResult');
+    handleFormSubmit('updateStateForm', '/api/v1/states', 'PUT', 'statesResult');
+
+    // Towns
+    setupButton('fetchAllTowns', '/api/v1/towns', 'GET', null, 'townsResult');
+    setupButton('fetchTownById', '/api/v1/towns', 'GET', 'townIdInput', 'townsResult');
+    handleFormSubmit('createTownForm', '/api/v1/towns', 'POST', 'townsResult');
+    handleFormSubmit('updateTownForm', '/api/v1/towns', 'PUT', 'townsResult');
+
+    // Profiles (solo GET)
+    setupButton('fetchAllProfiles', '/api/profiles', 'GET', null, 'profilesResult');
+
+    // Notifications (solo GET)
+    setupButton('fetchAllNotifications', '/api/notifications', 'GET', null, 'notificationsResult');
+
+    // Notification-Profiles (solo GET)
+    setupButton('fetchAllNotificationProfiles', '/api/notification-profiles', 'GET', null, 'notificationProfilesResult');
+
+    // Types
+    setupButton('fetchAllTypes', '/api/types', 'GET', null, 'typesResult');
+    handleFormSubmit('createTypeForm', '/api/types', 'POST', 'typesResult');
+
+</script>
+
+</body>
+</html>

@@ -40,8 +40,8 @@ public class InterestPoint {
     private List<OpinionInterestPoint> opinionInterestPoint;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_avarage_interest_points", nullable = false, unique = true)
-    private AvarageInterestPoint avarageInterestPoint;
+    @JoinColumn(name = "fk_id_average_interest_points", nullable = false, unique = true)
+    private AverageInterestPoint averageInterestPoint;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_id_type_of_point")
@@ -49,9 +49,13 @@ public class InterestPoint {
 
     @OneToOne(mappedBy = "interestPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
-    private List<AddressInterestPoint> addressInterestPoint;
+    private AddressInterestPoint addressInterestPoint;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_id_catalog", nullable = false, unique = true)
     private Catalog catalog;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_town")
+    private Town town;
 }

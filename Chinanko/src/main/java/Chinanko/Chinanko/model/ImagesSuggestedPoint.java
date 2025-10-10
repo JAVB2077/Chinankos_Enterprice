@@ -30,4 +30,8 @@ public class ImagesSuggestedPoint {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_id_suggested_point")
     private SuggestedPoint suggestedPoint;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_type_opinion")
+    private TypeOfOpinio typeOfOpinion;
 }

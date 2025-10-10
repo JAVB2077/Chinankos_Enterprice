@@ -1,6 +1,6 @@
+
 package Chinanko.Chinanko.model;
 
-import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -20,12 +20,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "AVARAGE_INTEREST_POINT")
-public class AvarageInterestPoint {
+@Table(name = "AVERAGE_INTEREST_POINT")
+public class AverageInterestPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pk_id_town")
-    private Integer idAvarageInterestedPoint;
+    private Integer idAverageInterestedPoint;
 
     @Column(name = "likes")
     private Integer likes;
@@ -36,10 +36,10 @@ public class AvarageInterestPoint {
     @Column(name = "total")
     private Integer total;
 
-    @Column(name = "avarage")
-    private Long avarage;
+    @Column(name = "average")
+    private Long average;
 
-    @OneToOne(mappedBy = "avarageInterest", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "averageInterestPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
-    private List<InterestPoint> interestPoint;
+    private InterestPoint interestPoint;
 }

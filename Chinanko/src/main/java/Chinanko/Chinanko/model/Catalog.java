@@ -34,7 +34,7 @@ public class Catalog {
     private String description;
 
     @OneToOne(mappedBy = "catalog", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<InterestPoint> interestPoints;
+    private InterestPoint interestPoint;
 
     @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Product> product;

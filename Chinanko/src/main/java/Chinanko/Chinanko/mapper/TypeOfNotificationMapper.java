@@ -8,18 +8,17 @@ import Chinanko.Chinanko.model.TypeOfNotification;
 
 @Component
 public class TypeOfNotificationMapper {
-
-    public TypeOfNotification toEntity(TypeOfNotificationRequest r){
+    public static TypeOfNotification toEntity(TypeOfNotificationRequest r){
         if(r==null) return null;
         TypeOfNotification t = new TypeOfNotification();
         t.setType(r.getType());
         return t;
     }
 
-    public TypeOfNotificationResponse toResponse(TypeOfNotification t){
+    public static TypeOfNotificationResponse toResponse(TypeOfNotification t){
         if(t==null) return null;
         TypeOfNotificationResponse resp = new TypeOfNotificationResponse();
-        resp.setId(t.getId());
+        resp.setId(t.getIdTypeNotification());
         resp.setType(t.getType());
         return resp;
     }

@@ -29,6 +29,6 @@ public class TypeOfReportsEvents {
     @Column(name = "type")
     private String type;
 
-    @OneToMany(mappedBy = "typeOfReportsEvent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "typeOfReportsEvents", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ReportOfEvent> reportOfEvents;
 }
