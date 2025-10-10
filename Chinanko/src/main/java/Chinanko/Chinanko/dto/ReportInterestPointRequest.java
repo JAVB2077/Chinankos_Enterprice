@@ -1,7 +1,5 @@
 package Chinanko.Chinanko.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponse {
+public class ReportInterestPointRequest {
+    
+    private String description;
+    private Integer idTypeOfReportPoint;
+    private Integer idInterestPoint;
     private Integer idUser;
-    private String nameUser;
-    private String email;
 }
