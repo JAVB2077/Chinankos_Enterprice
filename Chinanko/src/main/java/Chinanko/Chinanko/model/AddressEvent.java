@@ -32,7 +32,7 @@ public class AddressEvent {
     @Column(name = "exterior_number")
     private String exteriorNumber;
 
-    @Column(name = "Interior_Numbre")
+    @Column(name = "interior_numbre")
     private String interiorNumbre;
 
     @Column(name = "neighborhood")

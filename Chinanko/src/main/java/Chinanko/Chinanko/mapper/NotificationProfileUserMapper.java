@@ -11,9 +11,9 @@ public class NotificationProfileUserMapper {
     public NotificationProfileUserResponse toResponse(NotificationProfileUser n){
         if(n==null) return null;
         NotificationProfileUserResponse r = new NotificationProfileUserResponse();
-        r.setId(n.getId());
-    if(n.getUser()!=null) r.setUserId(n.getUser().getIdUser());
-        if(n.getNotification()!=null) r.setNotificationId(n.getNotification().getId());
+        r.setId(n.getIdNotificactionUser());
+        if(n.getUser()!=null) r.setUserId(n.getUser().getIdUser());
+        if(n.getNotification()!=null) r.setNotificationId(n.getNotification().getIdNotification());
         return r;
     }
 }

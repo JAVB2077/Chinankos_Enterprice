@@ -28,9 +28,9 @@ public class TypeOfNotificationServiceImpl implements TypeOfNotificationService{
         TypeOfNotification saved = repository.save(t);
         return mapper.toResponse(saved);
     }
-
+    
     @Override
-    public List<TypeOfNotificationResponse> listAll() {
+    public List<TypeOfNotificationResponse> findAll() {
         return repository.findAll().stream().map(mapper::toResponse).collect(Collectors.toList());
     }
 }

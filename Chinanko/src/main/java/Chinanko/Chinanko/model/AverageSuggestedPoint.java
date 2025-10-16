@@ -19,16 +19,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "AVARAGE_SEGGESTED_POINTS")
-public class AvarageSuggestedPoint {
+@Table(name = "AVERAGE_SUGGESTED_POINTS")
+public class AverageSuggestedPoint {
      @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_id_avarage_suggested_point")
-    private Integer idAvarage;
+    @Column(name = "pk_id_average_suggested_point")
+    private Integer idAverage;
 
     @Column(name = "polarity")
     private String polarity;
 
-    @OneToMany(mappedBy = "opinionsSuggestedPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "averageSuggestedPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SuggestedPoint> suggestedPoint;
 }

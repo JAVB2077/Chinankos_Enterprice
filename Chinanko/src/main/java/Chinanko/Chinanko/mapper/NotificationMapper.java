@@ -11,9 +11,10 @@ public class NotificationMapper {
     public NotificationResponse toResponse(Notification n){
         if(n==null) return null;
         NotificationResponse r = new NotificationResponse();
-        r.setId(n.getId());
+        // model uses idNotification as field
+        r.setId(n.getIdNotification());
         if(n.getCreator()!=null) r.setCreatorId(n.getCreator().getIdUser());
-        if(n.getTypeOfNotification()!=null) r.setTypeOfNotificationId(n.getTypeOfNotification().getId());
+        if(n.getTypeOfNotification()!=null) r.setTypeOfNotificationId(n.getTypeOfNotification().getIdTypeNotification());
         return r;
     }
 }

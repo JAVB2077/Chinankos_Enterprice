@@ -29,6 +29,6 @@ public class TypesOfOpinionsSuggestedPoint {
     @Column(name = "type")
     private String type;
 
-    @OneToMany(mappedBy = "typeOfOpinionsSuggestedPoints", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ofOpinionsSuggestedPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OpinionsSuggestedPoints> type_of_opinions_suggested_points;
 }

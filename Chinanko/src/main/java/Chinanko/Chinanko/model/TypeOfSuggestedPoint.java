@@ -38,8 +38,8 @@ public class TypeOfSuggestedPoint {
     @Column(name = "total")
     private Integer total;
 
-    @Column(name = "avarage")
-    private Long avarage;
+    @Column(name = "average")
+    private Long average;
 
     @OneToMany(mappedBy = "typeOfSuggestedPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SuggestedPoint> suggestedPoint;

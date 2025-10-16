@@ -48,6 +48,6 @@ public class Town{
     @OneToMany(mappedBy = "town", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SuggestedPoint> suggestedPoint;
 
-    @OneToMany(mappedBy = "twon", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "town", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<InterestPoint> interestPoint;
 }

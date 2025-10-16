@@ -54,6 +54,10 @@ public class SuggestedPoint {
     private StateSuggestedPoint stateSuggestedPoint;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_average_suggested_point")
+    private AverageSuggestedPoint averageSuggestedPoint;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_id_town")
     private Town town;
 
