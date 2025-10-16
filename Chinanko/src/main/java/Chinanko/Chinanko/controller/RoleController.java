@@ -3,10 +3,6 @@ package Chinanko.Chinanko.controller;
 import java.net.URI;
 import java.util.List;
 
-import java.util.Map;
-import jakarta.persistence.EntityNotFoundException;
-import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,32 +42,36 @@ public class RoleController {
     }
 
     @GetMapping("/{idRole}")
-    /*
-    public RoleResponse findById(epathvariab1e Integer idR01e) {
-        return service.findById(idR01e);
-        */
-    public ResponseEntity<?> findById(@PathVariable Integer idRole) {
-        try {
-            RoleResponse resp = service.findById(idRole);
-            return ResponseEntity.ok(resp);
-        } catch (EntityNotFoundException ex) {
-            Map<String, Object> body = Map.of("status", HttpStatus.NOT_FOUND.value(), "error", ex.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
-        }
+    public RoleResponse findById(@PathVariable Integer idRole) {
+        return service.findById(idRole);
     }
+    //#region no de se debe poner en el controlador
+    /*
+        public ResponseEntity<?> findById(@PathVariable Integer idRole) {
+            try {
+                RoleResponse resp = service.findById(idRole);
+                return ResponseEntity.ok(resp);
+            } catch (EntityNotFoundException ex) {
+                Map<String, Object> body = Map.of("status", HttpStatus.NOT_FOUND.value(), "error", ex.getMessage());
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+            }
+        }
+    */
+    //#endregion
 
     @PutMapping("/{idRole}")
-    /*  
-    public RoleResponse update(@PathVariab1e Integer idR01e. @RequestBody RoleRequest req) {
-            return service. update(idR01e, req); 
-            */
+    public RoleResponse update(@PathVariable Integer idRole, @RequestBody RoleRequest req) {
+        return service.update(idRole, req);
+    }  
+    /*
     public ResponseEntity<?> update(@PathVariable Integer idRole, @RequestBody RoleRequest req) {
-        try {
-            RoleResponse updated = service.update(idRole, req);
-            return ResponseEntity.ok(updated);
-        } catch (EntityNotFoundException ex) {
-            Map<String, Object> body = Map.of("status", HttpStatus.NOT_FOUND.value(), "error", ex.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
-        }
-    }
+                try {
+                    RoleResponse updated = service.update(idRole, req);
+                    return ResponseEntity.ok(updated);
+                } catch (EntityNotFoundException ex) {
+                    Map<String, Object> body = Map.of("status", HttpStatus.NOT_FOUND.value(), "error", ex.getMessage());
+                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+                }
+            }
+            */ 
 }
