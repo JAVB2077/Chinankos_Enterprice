@@ -2,7 +2,6 @@ package Chinanko.Chinanko.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import Chinanko.Chinanko.controller.UserController;
 import Chinanko.Chinanko.dto.UserRequest;
 import Chinanko.Chinanko.dto.UserResponse;
 import Chinanko.Chinanko.service.UserService;
