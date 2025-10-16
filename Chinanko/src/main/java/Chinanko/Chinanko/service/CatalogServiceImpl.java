@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
 import Chinanko.Chinanko.dto.CatalogRequest;
 import Chinanko.Chinanko.dto.CatalogResponse;
 import Chinanko.Chinanko.model.Catalog;
 import Chinanko.Chinanko.repository.CatalogRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +20,6 @@ public class CatalogServiceImpl implements CatalogService{
     @Override
     public CatalogResponse create(CatalogRequest req) {
         Catalog e = new Catalog();
-        e.setProducts(req.getProducts());
         e.setDescription(req.getDescription());
         Catalog saved = repository.save(e);
         return map(saved);
@@ -39,7 +38,6 @@ public class CatalogServiceImpl implements CatalogService{
     @Override
     public CatalogResponse update(Integer id, CatalogRequest req) {
         return repository.findById(id).map(e -> {
-            e.setProducts(req.getProducts());
             e.setDescription(req.getDescription());
             Catalog saved = repository.save(e);
             return map(saved);
@@ -49,7 +47,6 @@ public class CatalogServiceImpl implements CatalogService{
     private CatalogResponse map(Catalog e){
         return CatalogResponse.builder()
                 .idCatalog(e.getIdCatalog())
-                .products(e.getProducts())
                 .description(e.getDescription())
                 .build();
     }

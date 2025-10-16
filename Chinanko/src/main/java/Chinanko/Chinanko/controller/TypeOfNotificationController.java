@@ -13,15 +13,15 @@ import Chinanko.Chinanko.dto.TypeOfNotificationRequest;
 import Chinanko.Chinanko.dto.TypeOfNotificationResponse;
 import Chinanko.Chinanko.service.TypeOfNotificationService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/types")
 public class TypeOfNotificationController {
 
     private final TypeOfNotificationService service;
 
-    public TypeOfNotificationController(TypeOfNotificationService service){
-        this.service = service;
-    }
 
     @PostMapping
     public ResponseEntity<TypeOfNotificationResponse> create(@RequestBody TypeOfNotificationRequest request){
@@ -30,6 +30,6 @@ public class TypeOfNotificationController {
 
     @GetMapping
     public ResponseEntity<List<TypeOfNotificationResponse>> list(){
-        return ResponseEntity.ok(service.listAll());
+        return ResponseEntity.ok(service.findAll());
     }
 }

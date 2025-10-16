@@ -9,6 +9,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -27,13 +28,14 @@ public class Catalog {
     @Column(name = "pk_id_catalog")
     private Integer idCatalog;
 
-    @Column(name = "products")
-    private String products;
+    @Column(name = "name_catalog")
+    private String nameCatalog;
 
     @Column(name = "descrption")
     private String description;
 
-    @OneToOne(mappedBy = "catalog", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_interest_point", nullable = false) // ¡Esta es la clave!
     private InterestPoint interestPoint;
 
     @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -10,7 +10,7 @@ public class AddressInterestPointRequest {
     private String exteriorNumbre;
     private String interiorNumber;
     private String neigborhood;
-    private Integer postalCode;
+    private String postalCode;
     private BigDecimal latitude;
     private BigDecimal longitude;
     private Integer interestPointId;

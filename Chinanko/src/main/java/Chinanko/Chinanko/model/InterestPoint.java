@@ -16,6 +16,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "INTEREST_POINT")
 public class InterestPoint {
     @Id
@@ -39,8 +41,7 @@ public class InterestPoint {
     @OneToMany(mappedBy = "interestPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OpinionInterestPoint> opinionInterestPoint;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_average_interest_points", nullable = false, unique = true)
+    @OneToOne(mappedBy = "interestPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private AverageInterestPoint averageInterestPoint;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -51,8 +52,8 @@ public class InterestPoint {
     @PrimaryKeyJoinColumn
     private AddressInterestPoint addressInterestPoint;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_id_catalog", nullable = false, unique = true)
+     @OneToOne(mappedBy = "interestPoint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
     private Catalog catalog;
 
     @ManyToOne(fetch = FetchType.LAZY)

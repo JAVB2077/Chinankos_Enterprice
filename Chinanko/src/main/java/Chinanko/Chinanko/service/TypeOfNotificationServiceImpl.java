@@ -11,26 +11,25 @@ import Chinanko.Chinanko.mapper.TypeOfNotificationMapper;
 import Chinanko.Chinanko.model.TypeOfNotification;
 import Chinanko.Chinanko.repository.TypeOfNotificationRepository;
 
+import lombok.RequiredArgsConstructor;
+@RequiredArgsConstructor
 @Service
 public class TypeOfNotificationServiceImpl implements TypeOfNotificationService{
 
     private final TypeOfNotificationRepository repository;
-    private final TypeOfNotificationMapper mapper;
 
-    public TypeOfNotificationServiceImpl(TypeOfNotificationRepository repository, TypeOfNotificationMapper mapper){
-        this.repository = repository;
-        this.mapper = mapper;
-    }
+  
 
     @Override
     public TypeOfNotificationResponse create(TypeOfNotificationRequest request) {
-        TypeOfNotification t = mapper.toEntity(request);
+        TypeOfNotification t = TypeOfNotificationMapper.toEntity(request);
         TypeOfNotification saved = repository.save(t);
-        return mapper.toResponse(saved);
+        return TypeOfNotificationMapper.toResponse(saved);
     }
     
     @Override
     public List<TypeOfNotificationResponse> findAll() {
-        return repository.findAll().stream().map(mapper::toResponse).collect(Collectors.toList());
+        return repository.findAll().stream().map(TypeOfNotificationMapper::toResponse).collect(Collectors.toList());
     }
+    
 }

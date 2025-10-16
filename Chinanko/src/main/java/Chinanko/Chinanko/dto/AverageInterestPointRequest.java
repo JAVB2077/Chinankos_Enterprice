@@ -7,5 +7,6 @@ public class AverageInterestPointRequest {
     private Integer likes;
     private Integer dislikes;
     private Integer total;
-    private Long average;
+    private Integer idInterestPoint;
+    private float average;
 }

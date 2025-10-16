@@ -10,7 +10,7 @@ public class AddressEventRequest {
     private String exteriorNumber;
     private String interiorNumbre;
     private String neighborhood;
-    private Integer postalCode;
+    private String postalCode;
     private BigDecimal latitude;
     private BigDecimal longitude;
     private Integer eventId; // FK

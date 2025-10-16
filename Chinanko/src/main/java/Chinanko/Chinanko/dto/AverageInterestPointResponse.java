@@ -1,5 +1,6 @@
 package Chinanko.Chinanko.dto;
 
+import Chinanko.Chinanko.model.InterestPoint;
 import lombok.Builder;
 import lombok.Value;
 
@@ -10,5 +11,6 @@ public class AverageInterestPointResponse {
     private Integer likes;
     private Integer dislikes;
     private Integer total;
-    private Long average;
+    private InterestPoint interestPoint;
+    private float average;
 }

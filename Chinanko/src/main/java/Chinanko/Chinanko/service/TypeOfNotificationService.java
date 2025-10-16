@@ -7,5 +7,5 @@ import Chinanko.Chinanko.dto.TypeOfNotificationResponse;
 
 public interface TypeOfNotificationService {
     TypeOfNotificationResponse create(TypeOfNotificationRequest request);
-    List<TypeOfNotificationResponse> listAll();
+    List<TypeOfNotificationResponse> findAll();
 }

@@ -39,7 +39,7 @@ public class AddressEvent {
     private String neighborhood;
 
     @Column(name = "postal_code")
-    private Integer postalCode;
+    private String postalCode;
 
     @Column(name = "latitude")
     private BigDecimal latitude;

@@ -7,6 +7,6 @@ import lombok.Value;
 @Builder
 public class CatalogResponse {
     private Integer idCatalog;
-    private String products;
+    private String nameCatalog;
     private String description;
 }
