@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS OPINIONS_INTEREST_POINTS (
     UNIQUE (fk_id_interest_point, fk_id_user) -- Un usuario solo puede dejar una opinión de un tipo específico por punto de interés
 );
 
-CREATE TABLE IF NOT EXISTS AVERAGE_INTEREST_POINTS (
+CREATE TABLE IF NOT EXISTS AVERAGE_INTEREST_POINT (
     pk_id_average_interest_point SERIAL PRIMARY KEY,
     total INTEGER NOT NULL DEFAULT 0,
     average DECIMAL(2,1) NOT NULL DEFAULT 0.0,
@@ -477,4 +477,5 @@ GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO chinanko_user;
 
 -- =================================================================================
 -- FIN DEL SCRIPT
+
 -- =================================================================================
