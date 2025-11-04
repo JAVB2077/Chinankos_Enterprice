@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.model;
+package chinanko.chinanko.model;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TYPE_OF_EVENT")
+@Builder
+@Table(name = "TYPE_OF_EVENTS")
 public class TypeOfEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +32,5 @@ public class TypeOfEvent {
     private String type;
 
     @OneToMany(mappedBy = "typeOfEvent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Event> event;
+    private List<Event> events;
 }

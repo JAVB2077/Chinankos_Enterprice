@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
 import java.math.BigDecimal;
 import java.sql.Time;
@@ -14,10 +14,8 @@ public class EventResponse {
     private String description;
     private Time timeBegin;
     private Time timeEnd;
-    private BigDecimal latitude;
-    private BigDecimal longitude;
-    private Long price;
-    private Integer townId;
-    private Integer typeOfEventId;
-    private Integer stateOfEventId;
+    private float price;
+    private String townName;
+    private String typeOfEvent;
+    private String stateOfEvent;
 }

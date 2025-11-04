@@ -1,10 +1,10 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.TypeOfReportPointRequest;
-import Chinanko.Chinanko.dto.TypeOfReportPointResponse;
-import Chinanko.Chinanko.model.TypeOfReportPoint;
+import chinanko.chinanko.dto.TypeOfReportPointRequest;
+import chinanko.chinanko.dto.TypeOfReportPointResponse;
+import chinanko.chinanko.model.TypeOfReportPoint;
 
 @Component
 public class TypeOfReportPointMapper {

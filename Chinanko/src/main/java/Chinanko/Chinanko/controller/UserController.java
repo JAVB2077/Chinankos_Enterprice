@@ -1,7 +1,7 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,22 +10,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import chinanko.chinanko.dto.UserRequest;
+import chinanko.chinanko.dto.UserResponse;
+import chinanko.chinanko.model.User;
+import chinanko.chinanko.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-import Chinanko.Chinanko.dto.UserRequest;
-import Chinanko.Chinanko.dto.UserResponse;
-import Chinanko.Chinanko.service.UserService;
-import Chinanko.Chinanko.model.User;
-
-import java.net.URI;
-import java.util.List;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/users")

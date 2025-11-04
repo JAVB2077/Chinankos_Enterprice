@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

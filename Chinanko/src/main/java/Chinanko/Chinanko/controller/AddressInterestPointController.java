@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import Chinanko.Chinanko.dto.AddressInterestPointRequest;
-import Chinanko.Chinanko.dto.AddressInterestPointResponse;
-import Chinanko.Chinanko.service.AddressInterestPointService;
+import chinanko.chinanko.dto.AddressInterestPointRequest;
+import chinanko.chinanko.dto.AddressInterestPointResponse;
+import chinanko.chinanko.service.AddressInterestPointService;
 import lombok.RequiredArgsConstructor;
 
 @RestController

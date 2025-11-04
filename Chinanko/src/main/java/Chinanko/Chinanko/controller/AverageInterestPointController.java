@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import Chinanko.Chinanko.dto.AverageInterestPointRequest;
-import Chinanko.Chinanko.dto.AverageInterestPointResponse;
-import Chinanko.Chinanko.service.AverageInterestPointService;
+import chinanko.chinanko.dto.AverageInterestPointRequest;
+import chinanko.chinanko.dto.AverageInterestPointResponse;
+import chinanko.chinanko.service.AverageInterestPointService;
 import lombok.RequiredArgsConstructor;
 
 @RestController

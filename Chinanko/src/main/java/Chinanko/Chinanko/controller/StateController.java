@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import Chinanko.Chinanko.dto.StateRequest;
-import Chinanko.Chinanko.dto.StateResponse;
-import Chinanko.Chinanko.service.StateService;
+import chinanko.chinanko.dto.StateRequest;
+import chinanko.chinanko.dto.StateResponse;
+import chinanko.chinanko.service.StateService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -52,5 +52,10 @@ public class StateController {
     @PutMapping("/{idState}")
     public StateResponse update(@PathVariable Integer idState, @RequestBody StateRequest request) {
         return service.update(idState, request);
+    }
+
+    @GetMapping("search/{stateName}")
+    public StateResponse getByStateName(@PathVariable String stateName){
+        return service.getByName(stateName);
     }
 }

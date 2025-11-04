@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.AddressEventRequest;
-import Chinanko.Chinanko.dto.AddressEventResponse;
+import chinanko.chinanko.dto.AddressEventRequest;
+import chinanko.chinanko.dto.AddressEventResponse;
 
 public interface AddressEventService {
     AddressEventResponse create(AddressEventRequest req);

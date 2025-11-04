@@ -1,15 +1,15 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
-import Chinanko.Chinanko.dto.AverageInterestPointRequest;
-import Chinanko.Chinanko.dto.AverageInterestPointResponse;
-import Chinanko.Chinanko.model.AverageInterestPoint;
-import Chinanko.Chinanko.repository.AverageInterestPointRepository;
+import chinanko.chinanko.dto.AverageInterestPointRequest;
+import chinanko.chinanko.dto.AverageInterestPointResponse;
+import chinanko.chinanko.model.AverageInterestPoint;
+import chinanko.chinanko.repository.AverageInterestPointRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor

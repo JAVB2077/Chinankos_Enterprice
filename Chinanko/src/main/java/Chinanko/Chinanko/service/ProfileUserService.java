@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.ProfileUserResponse;
+import chinanko.chinanko.dto.ProfileUserResponse;
 
 public interface ProfileUserService {
     List<ProfileUserResponse> listAll();

@@ -1,19 +1,20 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
-import Chinanko.Chinanko.dto.ReportInterestPointRequest;
-import Chinanko.Chinanko.dto.ReportInterestPointResponse;
-import Chinanko.Chinanko.mapper.ReportInterestPointMapper;
-import Chinanko.Chinanko.model.InterestPoint;
-import Chinanko.Chinanko.model.ReportInterestPoint;
-import Chinanko.Chinanko.model.TypeOfReportPoint;
-import Chinanko.Chinanko.model.User;
-import Chinanko.Chinanko.repository.InterestPointRepository;
-import Chinanko.Chinanko.repository.ReportInterestPointRepository;
-import Chinanko.Chinanko.repository.TypeOfReportPointRepository;
-import Chinanko.Chinanko.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import chinanko.chinanko.dto.ReportInterestPointRequest;
+import chinanko.chinanko.dto.ReportInterestPointResponse;
+import chinanko.chinanko.mapper.ReportInterestPointMapper;
+import chinanko.chinanko.model.InterestPoint;
+import chinanko.chinanko.model.ReportInterestPoint;
+import chinanko.chinanko.model.TypeOfReportPoint;
+import chinanko.chinanko.model.User;
+import chinanko.chinanko.repository.InterestPointRepository;
+import chinanko.chinanko.repository.ReportInterestPointRepository;
+import chinanko.chinanko.repository.TypeOfReportPointRepository;
+import chinanko.chinanko.repository.UserRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;

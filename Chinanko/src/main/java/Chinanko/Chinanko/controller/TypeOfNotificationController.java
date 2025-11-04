@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import java.util.List;
 
@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Chinanko.Chinanko.dto.TypeOfNotificationRequest;
-import Chinanko.Chinanko.dto.TypeOfNotificationResponse;
-import Chinanko.Chinanko.service.TypeOfNotificationService;
-
+import chinanko.chinanko.dto.TypeOfNotificationRequest;
+import chinanko.chinanko.dto.TypeOfNotificationResponse;
+import chinanko.chinanko.service.TypeOfNotificationService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import Chinanko.Chinanko.dto.ImagesSuggestedPointRequest;
-import Chinanko.Chinanko.dto.ImagesSuggestedPointResponse;
-import Chinanko.Chinanko.service.ImagesSuggestedPointService;
+import chinanko.chinanko.dto.ImagesSuggestedPointRequest;
+import chinanko.chinanko.dto.ImagesSuggestedPointResponse;
+import chinanko.chinanko.service.ImagesSuggestedPointService;
 import lombok.RequiredArgsConstructor;
 
 @RestController

@@ -1,13 +1,13 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.NotificationResponse;
-import Chinanko.Chinanko.mapper.NotificationMapper;
-import Chinanko.Chinanko.repository.NotificationRepository;
+import chinanko.chinanko.dto.NotificationResponse;
+import chinanko.chinanko.mapper.NotificationMapper;
+import chinanko.chinanko.repository.NotificationRepository;
 
 @Service
 public class NotificationServiceImpl implements NotificationService{

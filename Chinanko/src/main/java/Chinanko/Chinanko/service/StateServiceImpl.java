@@ -1,14 +1,14 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.StateRequest;
-import Chinanko.Chinanko.dto.StateResponse;
-import Chinanko.Chinanko.mapper.StateMapper;
-import Chinanko.Chinanko.model.State;
-import Chinanko.Chinanko.repository.StateRepository;
+import chinanko.chinanko.dto.StateRequest;
+import chinanko.chinanko.dto.StateResponse;
+import chinanko.chinanko.mapper.StateMapper;
+import chinanko.chinanko.model.State;
+import chinanko.chinanko.repository.StateRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -43,5 +43,11 @@ public class StateServiceImpl implements StateService{
         StateMapper.copyToEntity(existing, request);
         State saved = repository.save(existing);
         return StateMapper.toResponse(saved);
+    }
+
+    @Override
+    public StateResponse getByName(String stateName){
+        State existing = repository.getStateByName(stateName);
+        return StateMapper.toResponse(existing);
     }
 }

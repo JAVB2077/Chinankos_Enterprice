@@ -1,14 +1,14 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.CatalogRequest;
-import Chinanko.Chinanko.dto.CatalogResponse;
-import Chinanko.Chinanko.model.Catalog;
-import Chinanko.Chinanko.repository.CatalogRepository;
+import chinanko.chinanko.dto.CatalogRequest;
+import chinanko.chinanko.dto.CatalogResponse;
+import chinanko.chinanko.model.Catalog;
+import chinanko.chinanko.repository.CatalogRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service

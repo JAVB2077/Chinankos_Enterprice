@@ -1,77 +1,90 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
+
+import chinanko.chinanko.dto.RoleRequest;
+import chinanko.chinanko.dto.RoleResponse;
+import chinanko.chinanko.service.RoleService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import Chinanko.Chinanko.dto.RoleRequest;
-import Chinanko.Chinanko.dto.RoleResponse;
-import Chinanko.Chinanko.service.RoleService;
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/api/v1/roles")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,
-        RequestMethod.PUT })
+@Tag(name = "Roles", description = "API para la gestión de Roles")
+// Tu configuración de CORS es funcional, aunque a menudo se prefiere una configuración global para toda la aplicación.
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT })
 public class RoleController {
 
-    private final RoleService service;
+    private final RoleService roleService;
 
+    @Operation(summary = "Crear un nuevo rol")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "Rol creado exitosamente", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = RoleResponse.class))
+        }),
+        @ApiResponse(responseCode = "400", description = "Datos de solicitud inválidos", content = @Content)
+    })
     @PostMapping
-    public ResponseEntity<RoleResponse> create(@RequestBody RoleRequest request) {
-        RoleResponse created = service.create(request);
-        return ResponseEntity
-                .created(URI.create("/api/v1/roles/" + created.getIdRol()))
-                .body(created);
+    public ResponseEntity<RoleResponse> create(@Valid @RequestBody RoleRequest request) {
+        RoleResponse createdRole = roleService.create(request);
+        
+        // Construye la URI del nuevo recurso. Es una forma más robusta y estándar.
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(createdRole.getIdRol())
+                .toUri();
+
+        return ResponseEntity.created(location).body(createdRole);
     }
 
+    @Operation(summary = "Obtener todos los roles")
+    @ApiResponse(responseCode = "200", description = "Lista de roles encontrados", content = {
+        @Content(mediaType = "application/json", schema = @Schema(implementation = RoleResponse.class))
+    })
     @GetMapping
     public ResponseEntity<List<RoleResponse>> findAll() {
-        return ResponseEntity.ok(service.getAll());
+        return ResponseEntity.ok(roleService.getAll());
     }
 
+    @Operation(summary = "Obtener un rol por su ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Rol encontrado", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = RoleResponse.class))
+        }),
+        @ApiResponse(responseCode = "404", description = "Rol no encontrado", content = @Content)
+    })
     @GetMapping("/{idRole}")
-    public RoleResponse findById(@PathVariable Integer idRole) {
-        return service.findById(idRole);
+    public ResponseEntity<RoleResponse> findById(@PathVariable Integer idRole) {
+        // Se asume que tu servicio lanza una excepción si no lo encuentra.
+        // Dicha excepción debería ser manejada por un @ControllerAdvice global.
+        return ResponseEntity.ok(roleService.findById(idRole));
     }
-    //#region no de se debe poner en el controlador
-    /*
-        public ResponseEntity<?> findById(@PathVariable Integer idRole) {
-            try {
-                RoleResponse resp = service.findById(idRole);
-                return ResponseEntity.ok(resp);
-            } catch (EntityNotFoundException ex) {
-                Map<String, Object> body = Map.of("status", HttpStatus.NOT_FOUND.value(), "error", ex.getMessage());
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
-            }
-        }
-    */
-    //#endregion
 
+    @Operation(summary = "Actualizar un rol existente")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Rol actualizado exitosamente", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = RoleResponse.class))
+        }),
+        @ApiResponse(responseCode = "400", description = "Datos de solicitud inválidos", content = @Content),
+        @ApiResponse(responseCode = "404", description = "Rol no encontrado", content = @Content)
+    })
     @PutMapping("/{idRole}")
-    public RoleResponse update(@PathVariable Integer idRole, @RequestBody RoleRequest req) {
-        return service.update(idRole, req);
-    }  
-    /*
-    public ResponseEntity<?> update(@PathVariable Integer idRole, @RequestBody RoleRequest req) {
-                try {
-                    RoleResponse updated = service.update(idRole, req);
-                    return ResponseEntity.ok(updated);
-                } catch (EntityNotFoundException ex) {
-                    Map<String, Object> body = Map.of("status", HttpStatus.NOT_FOUND.value(), "error", ex.getMessage());
-                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
-                }
-            }
-            */ 
+    public ResponseEntity<RoleResponse> update(@PathVariable Integer idRole, @Valid @RequestBody RoleRequest request) {
+        return ResponseEntity.ok(roleService.update(idRole, request));
+    }
 }

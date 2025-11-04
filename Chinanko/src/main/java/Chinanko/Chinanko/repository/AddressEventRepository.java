@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Chinanko.Chinanko.model.AddressEvent;
+import chinanko.chinanko.model.AddressEvent;
 
 public interface AddressEventRepository extends JpaRepository<AddressEvent, Integer> {
 

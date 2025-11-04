@@ -1,0 +1,55 @@
+# --- Archivo: src/main/resources/graphql/town.graphqls ---
+
+# 1. Define el tipo de dato principal (basado en TownResponse)
+# Los campos coinciden con tu DTO.
+# 'ID!' significa que es un ID y nunca será nulo.
+# 'String!' significa que es un texto y nunca será nulo.
+# 'Float' se usa para 'BigDecimal' (longitud/latitud) y puede ser nulo.
+type Town {
+    "El ID único del pueblo"
+    idTown: ID!
+    "El nombre del pueblo"
+    nameTown: String!
+    "Coordenada de longitud geográfica"
+    longitude: Float
+    "Coordenada de latitud geográfica"
+    latitude: Float
+    "El nombre del estado al que pertenece"
+    stateName: String!
+}
+
+# 2. Define el tipo de "Entrada" (basado en TownRequest)
+# Este objeto se usará para crear y actualizar.
+# No incluye 'idTown' porque se genera automáticamente o se pasa como argumento.
+input TownInput {
+    nameTown: String!
+    longitude: Float
+    latitude: Float
+    stateName: String!
+}
+
+# 3. Define todas las operaciones de "Lectura" (Queries)
+# Cada línea aquí corresponde a un @GetMapping en tu controlador.
+type Query {
+    "Obtiene una lista paginada de todos los pueblos"
+    allTowns(page: Int = 0, pageSize: Int = 10): [Town]
+
+    "Obtiene un pueblo específico por su ID"
+    townById(idTown: ID!): Town
+
+    "Obtiene un pueblo específico por su nombre"
+    townByName(nameTown: String!): Town
+
+    "Obtiene una lista de pueblos filtrada por el nombre del estado"
+    townsByState(nameState: String!): [Town]
+}
+
+# 4. Define todas las operaciones de "Escritura" (Mutations)
+# Corresponden a tus @PostMapping y @PutMapping
+type Mutation {
+    "Crea un nuevo pueblo"
+    createTown(input: TownInput!): Town
+
+    "Actualiza un pueblo existente usando su ID"
+    updateTown(idTown: ID!, input: TownInput!): Town
+}

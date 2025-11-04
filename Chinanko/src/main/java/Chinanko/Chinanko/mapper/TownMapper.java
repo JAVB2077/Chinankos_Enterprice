@@ -1,14 +1,14 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.controller.StateController;
-import Chinanko.Chinanko.dto.TownRequest;
-import Chinanko.Chinanko.dto.TownResponse;
-import Chinanko.Chinanko.model.State;
-import Chinanko.Chinanko.model.Town;
-import Chinanko.Chinanko.repository.StateRepository;
-import Chinanko.Chinanko.service.StateService;
+import chinanko.chinanko.controller.StateController;
+import chinanko.chinanko.dto.TownRequest;
+import chinanko.chinanko.dto.TownResponse;
+import chinanko.chinanko.model.State;
+import chinanko.chinanko.model.Town;
+import chinanko.chinanko.repository.StateRepository;
+import chinanko.chinanko.service.StateService;
 
 @Component
 public class TownMapper {

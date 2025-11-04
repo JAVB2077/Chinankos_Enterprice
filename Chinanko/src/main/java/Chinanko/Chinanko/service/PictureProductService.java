@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.PictureProductRequest;
-import Chinanko.Chinanko.dto.PictureProductResponse;
+import chinanko.chinanko.dto.PictureProductRequest;
+import chinanko.chinanko.dto.PictureProductResponse;
 
 public interface PictureProductService {
     PictureProductResponse create(PictureProductRequest req);

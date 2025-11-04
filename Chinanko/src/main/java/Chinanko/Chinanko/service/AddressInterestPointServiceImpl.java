@@ -1,15 +1,15 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
-import Chinanko.Chinanko.dto.AddressInterestPointRequest;
-import Chinanko.Chinanko.dto.AddressInterestPointResponse;
-import Chinanko.Chinanko.model.AddressInterestPoint;
-import Chinanko.Chinanko.repository.AddressInterestPointRepository;
+import chinanko.chinanko.dto.AddressInterestPointRequest;
+import chinanko.chinanko.dto.AddressInterestPointResponse;
+import chinanko.chinanko.model.AddressInterestPoint;
+import chinanko.chinanko.repository.AddressInterestPointRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor

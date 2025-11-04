@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
 import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;

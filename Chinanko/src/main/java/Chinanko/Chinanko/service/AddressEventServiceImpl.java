@@ -1,15 +1,15 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
-import Chinanko.Chinanko.dto.AddressEventRequest;
-import Chinanko.Chinanko.dto.AddressEventResponse;
-import Chinanko.Chinanko.model.AddressEvent;
-import Chinanko.Chinanko.repository.AddressEventRepository;
+import chinanko.chinanko.dto.AddressEventRequest;
+import chinanko.chinanko.dto.AddressEventResponse;
+import chinanko.chinanko.model.AddressEvent;
+import chinanko.chinanko.repository.AddressEventRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor

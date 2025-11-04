@@ -1,13 +1,13 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.ReportInterestPointRequest;
-import Chinanko.Chinanko.dto.ReportInterestPointResponse;
-import Chinanko.Chinanko.model.InterestPoint;
-import Chinanko.Chinanko.model.ReportInterestPoint;
-import Chinanko.Chinanko.model.TypeOfReportPoint;
-import Chinanko.Chinanko.model.User;
+import chinanko.chinanko.dto.ReportInterestPointRequest;
+import chinanko.chinanko.dto.ReportInterestPointResponse;
+import chinanko.chinanko.model.InterestPoint;
+import chinanko.chinanko.model.ReportInterestPoint;
+import chinanko.chinanko.model.TypeOfReportPoint;
+import chinanko.chinanko.model.User;
 
 import java.time.LocalDateTime;
 

@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.NotificationProfileUserResponse;
+import chinanko.chinanko.dto.NotificationProfileUserResponse;
 
 public interface NotificationProfileUserService {
     List<NotificationProfileUserResponse> listAll();

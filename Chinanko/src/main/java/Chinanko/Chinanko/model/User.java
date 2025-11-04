@@ -1,7 +1,7 @@
-package Chinanko.Chinanko.model;
-
+package chinanko.chinanko.model;
 
 import jakarta.persistence.CascadeType;
+import chinanko.chinanko.model.ProfileUser;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

@@ -1,21 +1,22 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
-import Chinanko.Chinanko.dto.InterestPointRequest;
-import Chinanko.Chinanko.dto.InterestPointResponse;
-import Chinanko.Chinanko.model.AverageInterestPoint;
-import Chinanko.Chinanko.model.Catalog;
-import Chinanko.Chinanko.model.InterestPoint;
-import Chinanko.Chinanko.model.Town;
-import Chinanko.Chinanko.model.TypeOfInterestPoint;
-import Chinanko.Chinanko.repository.CatalogRepository;
-import Chinanko.Chinanko.repository.InterestPointRepository;
-import Chinanko.Chinanko.repository.TownRepository;
-import Chinanko.Chinanko.repository.TypeOfInterestPointRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import chinanko.chinanko.dto.InterestPointRequest;
+import chinanko.chinanko.dto.InterestPointResponse;
+import chinanko.chinanko.model.AverageInterestPoint;
+import chinanko.chinanko.model.Catalog;
+import chinanko.chinanko.model.InterestPoint;
+import chinanko.chinanko.model.Town;
+import chinanko.chinanko.model.TypeOfInterestPoint;
+import chinanko.chinanko.repository.CatalogRepository;
+import chinanko.chinanko.repository.InterestPointRepository;
+import chinanko.chinanko.repository.TownRepository;
+import chinanko.chinanko.repository.TypeOfInterestPointRepository;
 
 @Service
 @RequiredArgsConstructor

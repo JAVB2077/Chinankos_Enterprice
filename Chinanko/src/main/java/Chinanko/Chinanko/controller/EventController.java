@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import Chinanko.Chinanko.dto.EventRequest;
-import Chinanko.Chinanko.dto.EventResponse;
-import Chinanko.Chinanko.service.EventService;
+import chinanko.chinanko.dto.EventRequest;
+import chinanko.chinanko.dto.EventResponse;
+import chinanko.chinanko.service.EventService;
 import lombok.RequiredArgsConstructor;
 
 @RestController

@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.EventRequest;
-import Chinanko.Chinanko.dto.EventResponse;
+import chinanko.chinanko.dto.EventRequest;
+import chinanko.chinanko.dto.EventResponse;
 
 public interface EventService {
     EventResponse create(EventRequest req);

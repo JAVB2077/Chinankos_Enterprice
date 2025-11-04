@@ -1,15 +1,15 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
-import Chinanko.Chinanko.dto.ImagesSuggestedPointRequest;
-import Chinanko.Chinanko.dto.ImagesSuggestedPointResponse;
-import Chinanko.Chinanko.model.ImagesSuggestedPoint;
-import Chinanko.Chinanko.repository.ImagesSuggestedPointRepository;
+import chinanko.chinanko.dto.ImagesSuggestedPointRequest;
+import chinanko.chinanko.dto.ImagesSuggestedPointResponse;
+import chinanko.chinanko.model.ImagesSuggestedPoint;
+import chinanko.chinanko.repository.ImagesSuggestedPointRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor

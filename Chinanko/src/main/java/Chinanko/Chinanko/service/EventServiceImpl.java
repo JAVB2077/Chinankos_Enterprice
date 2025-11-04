@@ -1,14 +1,14 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.EventRequest;
-import Chinanko.Chinanko.dto.EventResponse;
-import Chinanko.Chinanko.model.Event;
-import Chinanko.Chinanko.repository.EventRepository;
+import chinanko.chinanko.dto.EventRequest;
+import chinanko.chinanko.dto.EventResponse;
+import chinanko.chinanko.model.Event;
+import chinanko.chinanko.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -24,8 +24,6 @@ public class EventServiceImpl implements EventService {
         e.setDescription(req.getDescription());
         e.setTimeBegin(req.getTimeBegin());
         e.setTimeEnd(req.getTimeEnd());
-        e.setLatitude(req.getLatitude());
-        e.setLongitude(req.getLongitude());
         e.setPrice(req.getPrice());
         Event saved = repository.save(e);
         return map(saved);
@@ -48,8 +46,6 @@ public class EventServiceImpl implements EventService {
             e.setDescription(req.getDescription());
             e.setTimeBegin(req.getTimeBegin());
             e.setTimeEnd(req.getTimeEnd());
-            e.setLatitude(req.getLatitude());
-            e.setLongitude(req.getLongitude());
             e.setPrice(req.getPrice());
             Event saved = repository.save(e);
             return map(saved);
@@ -63,12 +59,7 @@ public class EventServiceImpl implements EventService {
                 .description(e.getDescription())
                 .timeBegin(e.getTimeBegin())
                 .timeEnd(e.getTimeEnd())
-                .latitude(e.getLatitude())
-                .longitude(e.getLongitude())
                 .price(e.getPrice())
-                .townId(e.getTown() != null ? e.getTown().getIdTown() : null)
-                .typeOfEventId(e.getTypeOfEvent() != null ? e.getTypeOfEvent().getIdTypeEvent() : null)
-                .stateOfEventId(e.getStateOfEvent() != null ? e.getStateOfEvent().getIdStateEvent() : null)
                 .build();
     }
 }

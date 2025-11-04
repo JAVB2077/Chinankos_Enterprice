@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.RoleRequest;
-import Chinanko.Chinanko.dto.RoleResponse;
+import chinanko.chinanko.dto.RoleRequest;
+import chinanko.chinanko.dto.RoleResponse;
 
 public interface RoleService {
     List<RoleResponse> getAll();

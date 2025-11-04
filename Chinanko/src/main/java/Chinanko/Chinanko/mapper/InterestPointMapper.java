@@ -1,13 +1,13 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.InterestPointRequest;
-import Chinanko.Chinanko.dto.InterestPointResponse;
-import Chinanko.Chinanko.model.AverageInterestPoint;
-import Chinanko.Chinanko.model.InterestPoint;
-import Chinanko.Chinanko.model.Town;
-import Chinanko.Chinanko.model.TypeOfInterestPoint;
+import chinanko.chinanko.dto.InterestPointRequest;
+import chinanko.chinanko.dto.InterestPointResponse;
+import chinanko.chinanko.model.AverageInterestPoint;
+import chinanko.chinanko.model.InterestPoint;
+import chinanko.chinanko.model.Town;
+import chinanko.chinanko.model.TypeOfInterestPoint;
 
 @Component
 public class InterestPointMapper {

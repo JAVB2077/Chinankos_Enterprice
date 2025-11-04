@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import Chinanko.Chinanko.model.Town;
+import chinanko.chinanko.model.Town;
 import lombok.Builder;
 import lombok.Data;
 

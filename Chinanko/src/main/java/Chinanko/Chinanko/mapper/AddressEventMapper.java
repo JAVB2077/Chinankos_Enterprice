@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 import org.springframework.stereotype.Component;
 
 @Component

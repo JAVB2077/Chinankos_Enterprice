@@ -1,9 +1,11 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Chinanko.Chinanko.dto.RoleRequest;
-import Chinanko.Chinanko.dto.RoleResponse;
-import Chinanko.Chinanko.service.RoleService;
+
+import chinanko.chinanko.controller.RoleController;
+import chinanko.chinanko.dto.RoleRequest;
+import chinanko.chinanko.dto.RoleResponse;
+import chinanko.chinanko.service.RoleService;
 import jakarta.persistence.EntityNotFoundException;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -65,13 +67,13 @@ class RoleControllerTest {
 	private RoleResponse resp(int id, String name) {
 		return RoleResponse.builder()
 				.idRol(id)
-				.nameRol(name)
+				.name(name)
 				.build();
 	}
 
 	private RoleRequest req(String name) {
 		RoleRequest r = new RoleRequest();
-		r.setNameRol(name);
+		r.setName(name);
 		return r;
 	}
 

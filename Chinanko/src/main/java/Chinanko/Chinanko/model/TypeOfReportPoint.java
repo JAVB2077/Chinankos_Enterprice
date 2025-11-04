@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.model;
+package chinanko.chinanko.model;
 import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

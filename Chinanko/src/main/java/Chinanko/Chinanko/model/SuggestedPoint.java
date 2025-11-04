@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.model;
+package chinanko.chinanko.model;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.OpinionsSuggestedPointsRequest;
-import Chinanko.Chinanko.dto.OpinionsSuggestedPointsResponse;
+import chinanko.chinanko.dto.OpinionsSuggestedPointsRequest;
+import chinanko.chinanko.dto.OpinionsSuggestedPointsResponse;
 
 public interface OpinionsSuggestedPointsService {
     OpinionsSuggestedPointsResponse create(OpinionsSuggestedPointsRequest req);

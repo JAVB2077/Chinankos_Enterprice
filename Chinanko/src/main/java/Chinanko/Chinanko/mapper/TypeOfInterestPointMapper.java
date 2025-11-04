@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.TypeOfInterestPointResponse;
-import Chinanko.Chinanko.dto.TypeOfInterestPointRequest;
-import Chinanko.Chinanko.model.TypeOfInterestPoint;
+import chinanko.chinanko.dto.TypeOfInterestPointRequest;
+import chinanko.chinanko.dto.TypeOfInterestPointResponse;
+import chinanko.chinanko.model.TypeOfInterestPoint;
 
 @Component
 public class TypeOfInterestPointMapper {

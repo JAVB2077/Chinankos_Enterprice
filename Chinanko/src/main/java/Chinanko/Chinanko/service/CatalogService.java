@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.CatalogRequest;
-import Chinanko.Chinanko.dto.CatalogResponse;
+import chinanko.chinanko.dto.CatalogRequest;
+import chinanko.chinanko.dto.CatalogResponse;
 
 public interface CatalogService {
     CatalogResponse create(CatalogRequest req);

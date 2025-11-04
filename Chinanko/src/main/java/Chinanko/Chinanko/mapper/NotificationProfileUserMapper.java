@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.NotificationProfileUserResponse;
-import Chinanko.Chinanko.model.NotificationProfileUser;
+import chinanko.chinanko.dto.NotificationProfileUserResponse;
+import chinanko.chinanko.model.NotificationProfileUser;
 
 @Component
 public class NotificationProfileUserMapper {

@@ -1,8 +1,5 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
-import java.util.List;
-
-import Chinanko.Chinanko.model.User;
 import lombok.Builder;
 import lombok.Value;
 
@@ -10,5 +7,5 @@ import lombok.Value;
 @Builder
 public class RoleResponse {
     private Integer idRol;
-    private String nameRol;
+    private String name;
 }

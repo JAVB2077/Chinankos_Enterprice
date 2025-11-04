@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Chinanko.Chinanko.model.TypeOfInterestPoint;
+import chinanko.chinanko.model.TypeOfInterestPoint;
 
 public interface TypeOfInterestPointRepository extends JpaRepository<TypeOfInterestPoint, Integer> {
 

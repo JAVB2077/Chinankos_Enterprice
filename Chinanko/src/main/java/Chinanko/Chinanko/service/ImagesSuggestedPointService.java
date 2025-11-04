@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.ImagesSuggestedPointRequest;
-import Chinanko.Chinanko.dto.ImagesSuggestedPointResponse;
+import chinanko.chinanko.dto.ImagesSuggestedPointRequest;
+import chinanko.chinanko.dto.ImagesSuggestedPointResponse;
 
 public interface ImagesSuggestedPointService {
     ImagesSuggestedPointResponse create(ImagesSuggestedPointRequest req);

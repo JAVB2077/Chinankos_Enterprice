@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.UserRequest;
-import Chinanko.Chinanko.dto.UserResponse;
+import chinanko.chinanko.dto.UserRequest;
+import chinanko.chinanko.dto.UserResponse;
 
 public interface UserService {
     List<UserResponse> findAll();

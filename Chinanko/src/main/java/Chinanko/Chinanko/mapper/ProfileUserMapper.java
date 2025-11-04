@@ -1,12 +1,12 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.ProfileUserResponse;
-import Chinanko.Chinanko.dto.RoleResponse;
-import Chinanko.Chinanko.dto.TownResponse;
-import Chinanko.Chinanko.dto.UserResponse;
-import Chinanko.Chinanko.model.ProfileUser;
+import chinanko.chinanko.dto.ProfileUserResponse;
+import chinanko.chinanko.dto.RoleResponse;
+import chinanko.chinanko.dto.TownResponse;
+import chinanko.chinanko.dto.UserResponse;
+import chinanko.chinanko.model.ProfileUser;
 
 @Component
 public class ProfileUserMapper {

@@ -1,14 +1,14 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.OpinionInterestPointRequest;
-import Chinanko.Chinanko.dto.OpinionInterestPointResponse;
-import Chinanko.Chinanko.model.OpinionInterestPoint;
-import Chinanko.Chinanko.repository.OpinionInterestPointRepository;
+import chinanko.chinanko.dto.OpinionInterestPointRequest;
+import chinanko.chinanko.dto.OpinionInterestPointResponse;
+import chinanko.chinanko.model.OpinionInterestPoint;
+import chinanko.chinanko.repository.OpinionInterestPointRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service

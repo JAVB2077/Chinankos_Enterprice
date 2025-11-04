@@ -1,13 +1,13 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.ProfileUserResponse;
-import Chinanko.Chinanko.mapper.ProfileUserMapper;
-import Chinanko.Chinanko.repository.ProfileUserRepository;
+import chinanko.chinanko.dto.ProfileUserResponse;
+import chinanko.chinanko.mapper.ProfileUserMapper;
+import chinanko.chinanko.repository.ProfileUserRepository;
 
 @Service
 public class ProfileUserServiceImpl implements ProfileUserService{

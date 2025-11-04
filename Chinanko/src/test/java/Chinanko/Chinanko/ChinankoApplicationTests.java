@@ -1,4 +1,4 @@
-package Chinanko.Chinanko;
+package chinanko.chinanko;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

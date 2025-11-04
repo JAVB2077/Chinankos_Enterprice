@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.model;
+package chinanko.chinanko.model;
 
 import java.time.LocalDate;
 import java.util.List;

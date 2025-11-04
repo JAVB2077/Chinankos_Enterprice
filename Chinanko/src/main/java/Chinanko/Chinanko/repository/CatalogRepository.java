@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Chinanko.Chinanko.model.Catalog;
+import chinanko.chinanko.model.Catalog;
 
 public interface CatalogRepository extends JpaRepository<Catalog, Integer>{
 

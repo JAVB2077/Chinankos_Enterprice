@@ -1,49 +1,98 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.RoleRequest;
-import Chinanko.Chinanko.dto.RoleResponse;
-import Chinanko.Chinanko.mapper.RoleMapper;
-import Chinanko.Chinanko.model.Role;
-import Chinanko.Chinanko.repository.RoleRepository;
+import chinanko.chinanko.dto.RoleRequest;
+import chinanko.chinanko.dto.RoleResponse;
+import chinanko.chinanko.mapper.RoleMapper;
+import chinanko.chinanko.model.Role;
+import chinanko.chinanko.repository.RoleRepository;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Objects;
+
 
 @Service
-@RequiredArgsConstructor
-public class RoleServiceImpl implements RoleService {
-
+public class RoleServiceImpl implements RoleService { // Implementación de la interfaz RoleService para la gestión de roles.
     private final RoleRepository repository;
 
-    @Override
-    public RoleResponse create(RoleRequest request) {
-        Role created = repository.save(RoleMapper.toEntity(request));
-        return RoleMapper.toResponse(created);
+    // Constructor injection
+    public RoleServiceImpl(RoleRepository repository) {
+        this.repository = repository;
     }
 
-    @Override
+    /**
+     * Retrieves all roles from the database.
+     * @return A list of RoleResponse objects.
+     */
+    @Transactional(readOnly = true)
     public List<RoleResponse> getAll() {
         return repository.findAll().stream()
-        .map(RoleMapper::toResponse)
-        .toList();
-    }
-    
-    @Override
-    public RoleResponse update(Integer idRole, RoleRequest req) {
-        Role existing = repository.findById(idRole)
-            .orElseThrow(() -> new EntityNotFoundException("rol no encontrado: " + idRole));
-        RoleMapper.copyToEntity(req, existing);
-        Role saved = repository.save(existing);
-        return RoleMapper.toResponse(saved);
-        
+                .map(RoleMapper::toResponse)
+                .toList();
     }
 
-    @Override
+    /**
+     * Finds a single role by its ID.
+     * @param id The ID of the role to find.
+     * @return The found RoleResponse.
+     * @throws EntityNotFoundException if no role with the given ID is found.
+     */
+    @Transactional(readOnly = true)
     public RoleResponse findById(Integer idRole) {
-        Role r = repository.findById(idRole).orElse(null);
-        return RoleMapper.toResponse(r);
+        Role role = repository.findById(idRole)
+                //.orElseThrow(() -> new EntityNotFoundException("Role not found with ID: " + idRole));
+                .orElseThrow(() -> new EntityNotFoundException("Rol no encontrado con ID: " + idRole));
+        return RoleMapper.toResponse(role);
     }
+
+    /**
+     * Creates a new role after validating that its name is unique.
+     * @param request The request DTO containing the role's data.
+     * @return The created RoleResponse.
+     * @throws IllegalArgumentException if a role with the same name already exists.
+     */
+    @Transactional
+    public RoleResponse create(RoleRequest request) {
+        // Validation: Ensure no other role has the same name before creating.
+        repository.findByName(request.getName()).ifPresent(r -> {
+            //throw new IllegalArgumentException("A role with the name '" + request.getName() + "' already exists.");
+            throw new IllegalArgumentException("Ya existe un rol con el nombre: " + request.getName());
+        });
+
+        Role newRole = RoleMapper.toEntity(request);
+        Role savedRole = repository.save(newRole);
+        return RoleMapper.toResponse(savedRole);
+    }
+
+    /**
+     * Updates an existing role.
+     * @param id The ID of the role to update.
+     * @param request The request DTO with the new data.
+     * @return The updated RoleResponse.
+     * @throws EntityNotFoundException if the role to update is not found.
+     * @throws IllegalArgumentException if the new name is already taken by another role.
+     */
+    @Transactional
+    public RoleResponse update(Integer idRole, RoleRequest request) {
+        Role existingRole = repository.findById(idRole)
+                //.orElseThrow(() -> new EntityNotFoundException("Role not found with ID: " + idRole));
+                .orElseThrow(() -> new EntityNotFoundException("Rol no encontrado con ID: " + idRole));
+
+        // Validation: If the name is being changed, check uniqueness
+        if (!Objects.equals(existingRole.getNameRol(), request.getName())) {
+            repository.findByName(request.getName()).ifPresent(r -> {
+                //throw new IllegalArgumentException("The name '" + request.getName() + "' is already in use by another role.");
+                throw new IllegalArgumentException("El nombre '" + request.getName() + "' ya está en uso por otro rol.");
+            });
+        }
+
+        RoleMapper.copyToEntity(request, existingRole);
+        Role updatedRole = repository.save(existingRole);
+        return RoleMapper.toResponse(updatedRole);
+    }
+    
 }

@@ -1,13 +1,13 @@
-package Chinanko.Chinanko.controller;
+package chinanko.chinanko.controller;
 import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import Chinanko.Chinanko.dto.ReportInterestPointRequest;
-import Chinanko.Chinanko.dto.ReportInterestPointResponse;
-import Chinanko.Chinanko.service.ReportInterestPointService;
+import chinanko.chinanko.dto.ReportInterestPointRequest;
+import chinanko.chinanko.dto.ReportInterestPointResponse;
+import chinanko.chinanko.service.ReportInterestPointService;
 import lombok.RequiredArgsConstructor;
 
 @RestController

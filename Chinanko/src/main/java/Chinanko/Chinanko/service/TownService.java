@@ -1,13 +1,15 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.TownRequest;
-import Chinanko.Chinanko.dto.TownResponse;
+import chinanko.chinanko.dto.TownRequest;
+import chinanko.chinanko.dto.TownResponse;
 
 public interface TownService {
     TownResponse create(TownRequest request);
-    List<TownResponse> findAll();
+    List<TownResponse> findAll(int page, int pageSize);
     TownResponse getById(Integer id);
     TownResponse update(Integer id, TownRequest request);
+    TownResponse getTownByName(String name);
+    List<TownResponse> getTownsByState(String stateName);
 }

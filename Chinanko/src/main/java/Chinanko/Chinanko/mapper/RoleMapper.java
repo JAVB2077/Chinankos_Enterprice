@@ -1,10 +1,10 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
 import org.springframework.stereotype.Component;
 
-import Chinanko.Chinanko.dto.RoleRequest;
-import Chinanko.Chinanko.dto.RoleResponse;
-import Chinanko.Chinanko.model.Role;
+import chinanko.chinanko.dto.RoleRequest;
+import chinanko.chinanko.dto.RoleResponse;
+import chinanko.chinanko.model.Role;
 
 @Component
 public class RoleMapper {

@@ -1,6 +1,6 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
-import Chinanko.Chinanko.model.InterestPoint;
+import chinanko.chinanko.model.InterestPoint;
 import lombok.Builder;
 import lombok.Value;
 

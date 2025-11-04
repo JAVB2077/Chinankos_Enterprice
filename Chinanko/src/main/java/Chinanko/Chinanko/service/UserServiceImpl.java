@@ -1,15 +1,15 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import Chinanko.Chinanko.dto.UserRequest;
-import Chinanko.Chinanko.dto.UserResponse;
-import Chinanko.Chinanko.mapper.UserMapper;
-import Chinanko.Chinanko.model.User;
-import Chinanko.Chinanko.repository.UserRepository;
+import chinanko.chinanko.dto.UserRequest;
+import chinanko.chinanko.dto.UserResponse;
+import chinanko.chinanko.mapper.UserMapper;
+import chinanko.chinanko.model.User;
+import chinanko.chinanko.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service

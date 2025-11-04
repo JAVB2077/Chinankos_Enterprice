@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Chinanko.Chinanko.model.Event;
+import chinanko.chinanko.model.Event;
 
 public interface EventRepository extends JpaRepository<Event, Integer>{
 

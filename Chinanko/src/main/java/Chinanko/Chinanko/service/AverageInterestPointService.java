@@ -1,9 +1,9 @@
-package Chinanko.Chinanko.service;
+package chinanko.chinanko.service;
 
 import java.util.List;
 
-import Chinanko.Chinanko.dto.AverageInterestPointRequest;
-import Chinanko.Chinanko.dto.AverageInterestPointResponse;
+import chinanko.chinanko.dto.AverageInterestPointRequest;
+import chinanko.chinanko.dto.AverageInterestPointResponse;
 
 public interface AverageInterestPointService {
     AverageInterestPointResponse create(AverageInterestPointRequest req);

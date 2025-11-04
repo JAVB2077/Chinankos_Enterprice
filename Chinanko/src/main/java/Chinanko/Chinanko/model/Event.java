@@ -1,4 +1,4 @@
-package Chinanko.Chinanko.model;
+package chinanko.chinanko.model;
 
 import java.math.BigDecimal;
 import java.sql.Time;
@@ -16,6 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "EVENTS")
 public class Event {
     @Id
@@ -42,14 +44,8 @@ public class Event {
     @Column(name = "timeEnd")
     private Time timeEnd;
 
-    @Column(name = "latitude")
-    private BigDecimal latitude;
-
-    @Column(name = "longitude")
-    private BigDecimal longitude;
-
     @Column(name = "price")
-    private Long price;
+    private float price;
 
     //Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

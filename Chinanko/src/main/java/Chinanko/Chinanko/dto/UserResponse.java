@@ -1,4 +1,5 @@
-package Chinanko.Chinanko.dto;
+package chinanko.chinanko.dto;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

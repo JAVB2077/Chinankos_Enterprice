@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Chinanko.Chinanko.model.AverageSuggestedPoint;
+import chinanko.chinanko.model.AverageSuggestedPoint;
 
 public interface AverageSuggestedPointRepository extends JpaRepository<AverageSuggestedPoint, Integer>{
 

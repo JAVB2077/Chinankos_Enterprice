@@ -1,10 +1,8 @@
-package Chinanko.Chinanko.mapper;
+package chinanko.chinanko.mapper;
 
-import org.springframework.stereotype.Component;
-
-import Chinanko.Chinanko.dto.UserRequest;
-import Chinanko.Chinanko.dto.UserResponse;
-import Chinanko.Chinanko.model.User;
+import chinanko.chinanko.dto.UserRequest;
+import chinanko.chinanko.dto.UserResponse;
+import chinanko.chinanko.model.User;
 
 public class UserMapper {
 

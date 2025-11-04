@@ -1,8 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Chinanko.Chinanko.model.ImagesSuggestedPoint;
+import chinanko.chinanko.model.ImagesSuggestedPoint;
 
 public interface ImagesSuggestedPointRepository extends JpaRepository<ImagesSuggestedPoint, Integer>{
 

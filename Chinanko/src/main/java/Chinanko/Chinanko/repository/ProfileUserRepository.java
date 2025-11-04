@@ -1,9 +1,8 @@
-package Chinanko.Chinanko.repository;
+package chinanko.chinanko.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
-import Chinanko.Chinanko.model.ProfileUser;
+import chinanko.chinanko.model.ProfileUser;
 
 public interface ProfileUserRepository extends JpaRepository<ProfileUser, Long> {
 
